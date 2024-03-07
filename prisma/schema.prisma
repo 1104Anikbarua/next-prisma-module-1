@@ -14,15 +14,13 @@ datasource db {
 }
 
 // copied from prisma site
-
 model post {
   id          Int      @id @default(autoincrement())
   author_name String
   age         Int
-  gender      String?
+  gender      String
+  email       String?  @unique
   publish     Boolean  @default(false)
   createdAt   DateTime @default(now())
-  updateAt    DateTime @updatedAt
-
-  @@map("post")
+  updatedAt   DateTime @updatedAt
 }
