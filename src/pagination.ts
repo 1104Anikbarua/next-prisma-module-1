@@ -24,6 +24,12 @@ const main = async () => {
   const posts = await prisma.post.findMany({
     take: 10,
     skip: 10,
+    cursor: {
+      id: 50,
+    },
+    orderBy: {
+      id: "desc",
+    },
   });
   console.log(posts);
 };
